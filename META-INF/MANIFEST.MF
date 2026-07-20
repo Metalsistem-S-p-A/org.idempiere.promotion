@@ -13,3 +13,4 @@ Bundle-Activator: org.adempiere.plugin.utils.Incremental2PackActivator
 Import-Package: org.osgi.service.event
 Bundle-Vendor: iDempiere Community
 Service-Component: OSGI-INF/*.xml
+Export-Package: org.idempiere.model
