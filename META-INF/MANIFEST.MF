@@ -3,7 +3,7 @@ Bundle-Category: idempiere-plugin
 Bundle-ManifestVersion: 2
 Bundle-Name: Promotions for iDempiere
 Bundle-SymbolicName: org.idempiere.promotion
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 13.0.0.qualifier
 Automatic-Module-Name: org.idempiere.promotion
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Bundle-ActivationPolicy: lazy
