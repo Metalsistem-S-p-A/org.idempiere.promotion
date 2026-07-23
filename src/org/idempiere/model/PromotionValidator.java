@@ -16,6 +16,7 @@ package org.idempiere.model;
 import org.adempiere.base.event.AbstractEventHandler;
 import org.adempiere.base.event.IEventTopics;
 import org.adempiere.exceptions.AdempiereException;
+import org.compiere.model.MBPartner;
 import org.compiere.model.MOrder;
 import org.compiere.model.MOrderLine;
 import org.compiere.model.PO;
@@ -156,7 +157,8 @@ public class PromotionValidator extends AbstractEventHandler {
 		int M_PromotionPreCondition_ID = 0;
 		int C_BP_Group_ID = 0;
 		try {
-			C_BP_Group_ID = order.getC_BPartner().getC_BP_Group_ID();
+			MBPartner bp = MBPartner.get(order.getCtx(), order.getC_BPartner_ID());
+			C_BP_Group_ID = bp.getC_BP_Group_ID();
 		} catch (Exception e) {
 		}
 		if (promotionCode != null && promotionCode.trim().length() > 0) {

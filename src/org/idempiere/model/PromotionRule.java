@@ -30,6 +30,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.adempiere.exceptions.AdempiereException;
+import org.compiere.model.MBPartner;
 import org.compiere.model.MOrder;
 import org.compiere.model.MOrderLine;
 import org.compiere.model.MTable;
@@ -470,10 +471,11 @@ public class PromotionRule {
 		//Key = M_Promotion_ID, value = List<M_PromotionLine_ID>
 		Map<Integer, List<Integer>> promotions = new LinkedHashMap<Integer, List<Integer>>();
 		try {
+			MBPartner bp = MBPartner.get(order.getCtx(), order.getC_BPartner_ID());
 			int pindex = 1;
 			stmt = DB.prepareStatement(sql.toString(), order.get_TrxName());
 			stmt.setInt(pindex++, order.getC_BPartner_ID());
-			stmt.setInt(pindex++, order.getC_BPartner().getC_BP_Group_ID());
+			stmt.setInt(pindex++, bp.getC_BP_Group_ID());
 			stmt.setInt(pindex++, order.getM_PriceList_ID());
 			stmt.setInt(pindex++, order.getM_Warehouse_ID());
 			stmt.setTimestamp(pindex++, order.getDateOrdered());
